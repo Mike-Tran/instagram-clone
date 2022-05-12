@@ -27,7 +27,7 @@ function App() {
     if (typeof token !== 'undefined' && token.length > 1
       && token !== 'undefined'
     ) {
-      fetch('http://localhost:3000/auto_login', {
+      fetch('/auto_login', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
