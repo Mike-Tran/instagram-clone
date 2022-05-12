@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import '../styles/App.css';
 import Login from "./Login";
 import Posts from "./Posts"
+import Signup from './Signup';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -47,7 +48,12 @@ function App() {
 
   console.log(posts);
   if (!loggedIn) {
-    return <Login setCurrentUser={setCurrentUser} />;
+    return (
+      <>
+        <Signup />;
+        <Login setCurrentUser={setCurrentUser} />;
+      </>
+    )
   } else {
     return ( 
       <>

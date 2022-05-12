@@ -31,4 +31,3 @@ p3 = Post.create(description: Faker::Lorem.sentence, likes: 5, user: user1)
 
 
 puts "Seeding done!"
-binding.pry
