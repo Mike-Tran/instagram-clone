@@ -1,22 +1,24 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import '../styles/App.css';
 import Login from "./Login";
+import Posts from "./Posts"
 
 function App() {
   const [user, setUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [posts, setPosts] = useState([]);
 
   function setCurrentUser(currentUser) {
-    console.log("INSIDE SET CURRENT USER");
     setUser(currentUser);
     setLoggedIn(true);
-    console.log(user)
+    setPosts(currentUser.posts)
   }
 
   function logOut() {
     setUser({});
     setLoggedIn(false);
+    setPosts([]);
     localStorage.token = '';
   }
 
@@ -43,10 +45,17 @@ function App() {
   }, []);
 
 
+  console.log(posts);
   if (!loggedIn) {
     return <Login setCurrentUser={setCurrentUser} />;
   } else {
-    return <h1>{user.username}</h1>
+    return ( 
+      <>
+        <h1>{user.username}</h1>
+        < Posts posts={posts} />
+        <button onClick={logOut}> LogOut </button>
+      </>
+    )
   }
 }
 
