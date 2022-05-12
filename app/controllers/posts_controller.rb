@@ -1,4 +1,3 @@
-require 'pry'
 class PostsController < ApplicationController
     def index
         render json: Post.all

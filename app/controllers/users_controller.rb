@@ -14,7 +14,11 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create!(user_params)
-        render json: @user, status: :created
+        if @user.valid?
+            render json: { user: @user, status: :created}
+        else
+            render json: { error: 'failed to create user', status: :not_acceptable}
+        end
     end
 
     private

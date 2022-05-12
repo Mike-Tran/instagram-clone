@@ -24,7 +24,7 @@ export default function Signup() {
         'Content-Type': 'application/json',
         Accept: 'application/json',
       },
-      body: JSON.stringify({ user }),
+      body: JSON.stringify(user),
     })
       .then((r) => r.json())
       .then((response) => {

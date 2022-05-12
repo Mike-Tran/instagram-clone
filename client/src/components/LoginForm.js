@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Error, Input, FormField } from "../styles";
 
-const loginAPI_dev = 'http://localhost:3000/login';
+const loginAPI_dev = '/login';
 
 function LoginForm({setCurrentUser}) {
     const [username, setUsername] = useState("");
