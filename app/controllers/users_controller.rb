@@ -7,11 +7,19 @@ class UsersController < ApplicationController
         render json: @users, status: :ok
     end
 
+    def show
+        user = User.find(params[:id])
+        render json: user, status: :ok, serializer: UserSerializer
+    end
+
     def create
-        @user = User.create(
-            username: params[:username],
-            password: params[:password]
-        )
+        @user = User.create!(user_params)
         render json: @user, status: :created
+    end
+
+    private
+
+    def user_params
+        params.permit(:username, :password)
     end
 end
