@@ -10,7 +10,7 @@ require 'pry'
 # This will delete any existing rows from the Product and User tables
 # so you can run the seed file multiple times without having duplicate entries in your database
 puts "Deleting old data..."
-# User.destroy_all
+User.destroy_all
 # Comment.destroy_all
 # Post.destroy_all
 
@@ -25,9 +25,10 @@ user3 = User.create(username: "miketran", password: "password")
 # c3 = Comment.create(likes: 5, comment: Faker::Lorem.sentence)
 
 puts "Creating posts..."
-p1 = Post.create(description: Faker::Lorem.sentence, likes: 5, user: user1)
-p2 = Post.create(description: Faker::Lorem.sentence, likes: 5, user: user1)
-p3 = Post.create(description: Faker::Lorem.sentence, likes: 5, user: user1)
+p1 = Post.create(description: Faker::Lorem.sentence, likes: 5, user: user3)
+p2 = Post.create(description: Faker::Lorem.sentence, likes: 5, user: user3)
+p3 = Post.create(description: Faker::Lorem.sentence, likes: 5, user: user3)
 
 
 puts "Seeding done!"
+binding.pry

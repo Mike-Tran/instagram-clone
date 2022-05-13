@@ -1,9 +1,27 @@
-function Posts({posts}) {
+import PostCard from './PostCard';
+import React, { useState } from 'react';
+
+
+function Posts({posts, handleDeletePost, handleSubmitPost, handleLike}) {
+    const [newPost, setNewPost] = useState("");
     return (
         <div className="Posts">
           {posts.map((post) => (
-              <h3>{post.description + " Likes: " + post.likes}</h3>
+              <PostCard
+                key={post.id}
+                post={post}
+                handleDeletePost={handleDeletePost}
+                handleLike={handleLike}
+              />
           ))}
+          <form onSubmit={handleSubmitPost} id="post_form">
+            <input 
+                type="text" 
+                placeholder="New post"
+                value={newPost}
+                onChange={(e) => setNewPost(e.target.value)}
+            ></input>
+          </form>
         </div>
       );
 }

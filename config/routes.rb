@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :comments, only: [:index, :create]
-  resources :posts, only: [:index, :show, :create]
+  resources :posts, only: [:index, :show, :create, :update, :destroy]
   resources :users, only: [:index, :show, :create]
   post '/login', to: 'authentication#login'
   post '/auto_login', to: 'authentication#auto_login'

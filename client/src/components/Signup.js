@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-export default function Signup() {
+
+export default function Signup({setCurrentUser}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [created, setCreated] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+
+  let navigate = useNavigate();
 
   function createUser(event) {
     event.preventDefault();
@@ -31,6 +34,8 @@ export default function Signup() {
         if (response.status === 'created') {
           setCreated(true);
           setErrorMessage('');
+          setCurrentUser(response.user)
+          navigate("/");
         }
       })
       .catch((response) =>
@@ -43,7 +48,7 @@ export default function Signup() {
   return (
     <div>
       {created ? (
-        <Redirect to="/login" />
+        <></>
       ) : (
         <div>
           <div className="please-log-in">

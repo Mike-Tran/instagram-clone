@@ -1,0 +1,8 @@
+.postCard {
+    display: flex;
+    align-items: center;
+}
+
+.postCard button {
+    height: 20px;
+}

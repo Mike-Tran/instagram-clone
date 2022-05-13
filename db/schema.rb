@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 2022_05_12_143751) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "description"
     t.integer "likes"
-    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
