@@ -100,7 +100,7 @@ function App() {
 
   return (
     <Router>
-      <Navbar user={user} logOut={logOut} loggedIn={loggedIn} />
+      {loggedIn ? <Navbar user={user} logOut={logOut} loggedIn={loggedIn} /> : null}
       <div className='main-container'>
         <Routes>
           <Route path="/" element={<Home setCurrentUser={setCurrentUser} user={user} loggedIn={loggedIn} handleDeletePost={handleDeletePost} posts={posts} handleSubmitPost={handleSubmitPost} handleLike={handleLike} />}/>
