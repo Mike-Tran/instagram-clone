@@ -38,8 +38,12 @@
 }
 
 .main-container {
-  background-color: rgba(var(--b3f,250,250,250),1);
-  height: 100vh;
+
   display: grid;
   place-items: center;
+}
+
+body {
+  background-color: rgba(var(--b3f,250,250,250),1);
+  height: 100%;
 }

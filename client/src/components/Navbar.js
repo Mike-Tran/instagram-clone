@@ -1,7 +1,7 @@
 import instagram_logo from "../assets/instagram_logo.png"
 import '../styles/Navbar.css';
 
-function Navbar({user}) {
+function Navbar({user, logOut, loggedIn}) {
     return (
         <div className="navbar-container">
             <div className="navbar-logo">
@@ -12,6 +12,7 @@ function Navbar({user}) {
             </div>
             <div className="navbar-buttons">
                 <h2>{user ? user.username : ' '}</h2>
+                {loggedIn ? <button onClick={logOut}> LogOut </button> : ''}
             </div>
 
         </div>

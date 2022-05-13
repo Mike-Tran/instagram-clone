@@ -1,7 +1,7 @@
 import Login from "./Login";
 import Posts from "./Posts"
 
-function Home({setCurrentUser, user, loggedIn, logOut, handleDeletePost, posts, handleSubmitPost, handleLike}) {
+function Home({setCurrentUser, user, loggedIn, handleDeletePost, posts, handleSubmitPost, handleLike}) {
     if (!loggedIn) {
         return (
           <>
@@ -12,9 +12,7 @@ function Home({setCurrentUser, user, loggedIn, logOut, handleDeletePost, posts, 
     } else {
         return ( 
           <>
-            <h1>{user.username}</h1>
-            {user.posts !== undefined ? < Posts posts={posts} handleDeletePost={handleDeletePost} handleSubmitPost={handleSubmitPost} handleLike={handleLike} /> : <></>}
-            <button onClick={logOut}> LogOut </button>
+            {user.posts !== undefined ? < Posts user={user} handleDeletePost={handleDeletePost} handleSubmitPost={handleSubmitPost} handleLike={handleLike} posts={posts} /> : <></>}
           </>
         )
     }

@@ -13,3 +13,9 @@
 .navbar-logo {
     justify-content: center;
 }
+
+.navbar-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

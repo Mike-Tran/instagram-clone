@@ -100,10 +100,10 @@ function App() {
 
   return (
     <Router>
-      <Navbar user={user} />
+      <Navbar user={user} logOut={logOut} loggedIn={loggedIn} />
       <div className='main-container'>
         <Routes>
-          <Route path="/" element={<Home setCurrentUser={setCurrentUser} user={user} loggedIn={loggedIn} logOut={logOut} handleDeletePost={handleDeletePost} posts={posts} handleSubmitPost={handleSubmitPost} handleLike={handleLike} />}/>
+          <Route path="/" element={<Home setCurrentUser={setCurrentUser} user={user} loggedIn={loggedIn} handleDeletePost={handleDeletePost} posts={posts} handleSubmitPost={handleSubmitPost} handleLike={handleLike} />}/>
           <Route path="/signup" element={<Signup setCurrentUser={setCurrentUser} />}/>
         </Routes>
       </div>
